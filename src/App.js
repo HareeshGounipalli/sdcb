@@ -1,31 +1,26 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { fetchFoodItems } from "./redux/foodSlice";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MenuPage from "./pages/MenuPage";
 import ProductDetails from "./components/ProductDetails";
-import Footer from "./components/Footer";
+import { CartProvider } from "./components/CartContext"; // Import Cart Provider
 
-function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchFoodItems());
-  }, [dispatch]);
-
+const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </CartProvider>
   );
-}
+};
 
 export default App;
