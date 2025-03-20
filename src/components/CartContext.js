@@ -11,17 +11,39 @@ export const CartProvider = ({ children }) => {
       const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
 
       if (existingItem) {
-        console.log(`${item.name} is already in the cart.`);
-        return prevCart; // If exists, return previous cart (no duplicates)
+        // Increase quantity if item already exists
+        return prevCart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
       } else {
-        console.log(`Added to cart: ${item.name}`);
-        return [...prevCart, item]; // Add new item if not in cart
+        // Add new item with quantity = 1
+        return [...prevCart, { ...item, quantity: 1 }];
+      }
+    });
+  };
+
+  const removeFromCart = (item) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
+
+      if (existingItem.quantity > 1) {
+        // Decrease quantity if more than 1
+        return prevCart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        );
+      } else {
+        // Remove item if quantity is 1
+        return prevCart.filter((cartItem) => cartItem.id !== item.id);
       }
     });
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

@@ -18,6 +18,7 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Menu List Layout */
 .menu-list {
   display: flex;
   flex-wrap: wrap;
@@ -28,10 +29,10 @@
 
 /* Styling for each menu item */
 .menu-item {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 15px;
   border-radius: 12px;
-  width: 200px;
+  width: 220px;
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   display: flex;
@@ -70,10 +71,54 @@
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 .menu-button:hover {
   background-color: #e07b00;
+}
+
+/* Quantity Control Buttons */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* + and - Buttons */
+.quantity-controls button {
+  background-color: #ff8c00;
+  color: white;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.quantity-controls button:hover {
+  background-color: #e07b00;
+}
+
+/* Quantity Count */
+.quantity-controls span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-width: 35px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #ff8c00;
+  border-radius: 5px;
+  border: 2px solid #ff8c00;
+  padding: 5px 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Hover Effect */

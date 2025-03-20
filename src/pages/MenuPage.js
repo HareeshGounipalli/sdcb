@@ -14,22 +14,35 @@ const foodItems = [
 ];
 
 const MenuPage = () => {
-  const { addToCart } = useContext(CartContext);
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
   return (
     <div className="menu-page-container">
       <h1>Menu</h1>
       <div className="menu-list">
-        {foodItems.map((item) => (
-          <div key={item.id} className="menu-item">
-            <img src={item.image} alt={item.name} />
-            <h3>{item.name}</h3>
-            <p>₹{item.price}</p>
-            <button className="menu-button" onClick={() => addToCart(item)}>
-              Add to Cart
-            </button>
-          </div>
-        ))}
+        {foodItems.map((item) => {
+          const cartItem = cart.find((cartItem) => cartItem.id === item.id);
+
+          return (
+            <div key={item.id} className="menu-item">
+              <img src={item.image} alt={item.name} />
+              <h3>{item.name}</h3>
+              <p>₹{item.price}</p>
+
+              {cartItem ? (
+                <div className="quantity-controls">
+                  <button onClick={() => removeFromCart(item)}>-</button>
+                  <span>{cartItem.quantity}</span>
+                  <button onClick={() => addToCart(item)}>+</button>
+                </div>
+              ) : (
+                <button className="menu-button" onClick={() => addToCart(item)}>
+                  Add to Cart
+                </button>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
