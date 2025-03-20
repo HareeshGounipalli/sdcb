@@ -1,0 +1,49 @@
+/* Container styling */
+.featured-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fffaf0; /* Light background */
+  }
+  
+  /* Title styling */
+  .featured-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff9800; /* Matching the theme */
+  }
+  
+  /* Grid layout */
+  .featured-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Card styling */
+  .featured-card {
+    max-width: 320px;
+    margin: auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Card hover effect */
+  .featured-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Add to cart button */
+  .add-to-cart-btn {
+    margin-top: 10px;
+    background-color: #ff9800;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #e68900;
+  }
+  

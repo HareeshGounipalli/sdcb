@@ -1,0 +1,39 @@
+.menu-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .menu-title {
+    font-weight: bold;
+    color: #ff9800;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    margin-bottom: 15px;
+    width: 50%;
+  }
+  
+  .category-filter {
+    margin-bottom: 20px;
+    width: 200px;
+  }
+  
+  .menu-grid {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .menu-card {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menu-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .add-to-cart-btn {
+    margin-top: 10px;
+    background-color: #ff9800;
+  }
+  

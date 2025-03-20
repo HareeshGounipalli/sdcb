@@ -1,0 +1,28 @@
+.hero-section {
+  height: 70vh;
+  width: 100%;
+  background: url("/bg.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-title {
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+  margin-top: 10px;
+}
+
+.hero-button {
+  margin-top: 20px;
+  background-color: #ff9800;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
