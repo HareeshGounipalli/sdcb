@@ -1,0 +1,83 @@
+/* Menu Page Styling */
+.menu-page-container {
+  background-image: url("../assets/bg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-page-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 90%;
+}
+
+/* Styling for each menu item */
+.menu-item {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 12px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.menu-item h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.menu-item p {
+  font-size: 1.2rem;
+  color: #ff6600;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+/* Add to Cart button */
+.menu-button {
+  background-color: #ff8c00;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+  background-color: #e07b00;
+}
+
+/* Hover Effect */
+.menu-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}

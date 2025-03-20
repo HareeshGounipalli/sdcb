@@ -1,0 +1,60 @@
+/* Menu Page Styling */
+.menu-container {
+    background-image: url("../assets/bg.png"); /* Background image */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff; /* White text for visibility */
+    text-align: center;
+  }
+  
+  .menu-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .menu-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .menu-container li {
+    list-style-type: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+    max-width: 200px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .menu-container li img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .menu-container li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  button {
+    background-color: #ff8c00;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #e07b00;
+  }
+  

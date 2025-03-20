@@ -1,15 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import  foodData  from "../mock/foodData";
 
+// Simulate API call
 export const fetchFoodItems = createAsyncThunk("food/fetchFoodItems", async () => {
-  const response = await foodData();
-  return response;
+  return [
+    { id: 1, name: "Pani Puri", price: 50 },
+    { id: 2, name: "Bhel Puri", price: 60 },
+  ]; // Replace with actual API call
 });
 
 const foodSlice = createSlice({
   name: "food",
   initialState: {
-    food: [],
+    foodItems: [], // Ensure it's an array
     status: "idle",
     error: null,
   },
@@ -21,7 +23,7 @@ const foodSlice = createSlice({
       })
       .addCase(fetchFoodItems.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.food = action.payload;
+        state.foodItems = action.payload;
       })
       .addCase(fetchFoodItems.rejected, (state, action) => {
         state.status = "failed";
