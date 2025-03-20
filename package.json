@@ -19,11 +19,11 @@
     "core-js": "^3.41.0",
     "micromatch": "^4.0.8",
     "postcss": "^8.5.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.30.0",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^5.0.0",
     "resolve-url-loader": "^5.0.0",
     "web-vitals": "^4.2.4"
   },
@@ -53,6 +53,11 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-json-strings": "^7.25.9",
-    "eslint-webpack-plugin": "^5.0.0"
+    "@eslint/js": "^9.22.0",
+    "eslint": "^8.0.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-webpack-plugin": "^5.0.0",
+    "globals": "^16.0.0"
   }
 }

@@ -1,0 +1,31 @@
+.menu-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .menu-title {
+    font-weight: bold;
+    color: #ff9800;
+    margin-bottom: 20px;
+  }
+  
+  .menu-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-list li {
+    padding: 10px;
+    font-size: 18px;
+  }
+  
+  .menu-list a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .menu-list a:hover {
+    color: #ff9800;
+  }
+  

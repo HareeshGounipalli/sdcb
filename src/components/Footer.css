@@ -1,0 +1,11 @@
+.footer {
+    background-color: #ff9800; /* Matching the navbar color */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+  }
+  
