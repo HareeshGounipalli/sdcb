@@ -1,24 +1,86 @@
+/* Home Page Container */
 .home-container {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .home-container h1 {
-    font-size: 36px;
-    color: #333;
-  }
-  
-  .home-container button {
-    background-color: #ff9800;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  .home-container button:hover {
-    background-color: #e68900;
-  }
-  
+  background-image: url("../assets/bg.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding-top: 80px; /* ✅ Fixes Navbar Overlap */
+}
+
+/* Dark Overlay for Readability */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  background: rgba(255, 140, 0, 0.95); /* ✅ Slight transparency */
+  backdrop-filter: blur(5px); /* ✅ Soft blur effect */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Welcome Message */
+.home-container h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 10;
+  position: relative;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* ✅ Increased contrast */
+}
+
+/* View Menu Button */
+.home-container button {
+  background-color: #ff8c00;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  z-index: 10;
+  position: relative;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.home-container button:hover {
+  background-color: #e07b00;
+  transform: scale(1.05);
+}
+
+/* Footer Fix */
+.footer {
+  background-color: #ff8c00;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+  width: 100%;
+  position: relative; /* ✅ Fixes Footer Overlap */
+  bottom: 0;
+  margin-top: auto;
+}
