@@ -1,39 +1,87 @@
+import puri1 from "../assets/puri1.jpg";
+import puri2 from "../assets/puri2.jpg";
+import puri3 from "../assets/puri3.jpg";
+import puri4 from "../assets/puri4.jpg";
+import puri5 from "../assets/puri5.jpg";
+import Chees from "../assets/chees.webp"
+import Masala from "../assets/Masala.webp";
+import Spicy from "../assets/spicy.webp";
+import Meetha from "../assets/Meetha.webp";
+import Crispy from "../assets/Crispy.webp";
+
 const  foodData = [
     {
       id: 1,
       name: "Crispy Pani Puri",
       price: "₹50",
-      image: "/Crispy.webp",
+      image: Crispy,
       description: "Crispy and delicious pani puris with spicy and tangy water."
     },
     {
       id: 2,
       name: "Masala Pani Puri",
       price: "₹60",
-      image: "/Masala.webp",
+      image: Masala,
       description: "Spicy masala-filled pani puris with flavorful chutneys."
     },
     {
       id: 3,
       name: "Meetha Pani Puri",
       price: "₹55",
-      image: "/Meetha.webp",
+      image: Meetha,
       description: "Sweet and tangy pani puris with a mix of flavors."
     },
     {
       id: 4,
       name: "Cheese Pani Puri",
       price: "₹70",
-      image: "/chees.webp",
+      image: Chees,
       description: "Pani puris with a cheesy twist, a unique fusion."
     },
     {
       id: 5,
       name: "Spicy Pani Puri",
       price: "₹65",
-      image: "/spicy.webp",
+      image: Spicy,
       description: "Extra spicy and flavorful pani puris for spice lovers."
-    }
+    },
+    {
+      id: 6,
+      name: "Puri1",
+      price: "₹35",
+      image: puri1,
+      description: "Extra spicy and flavorful pani puris for spice lovers."
+    },
+    {
+      id: 7,
+      name: "Puri2",
+      price: "₹36",
+      image: puri2,
+      description: "Extra spicy and flavorful pani puris for spice lovers."
+    },
+    {
+      id: 8,
+      name: "Puri3",
+      price: "₹37",
+      image: puri3,
+      description: "Extra spicy and flavorful pani puris for spice lovers."
+    },
+    {
+      id: 9,
+      name: "Puri4",
+      price: "₹38",
+      image: puri4,
+      description: "Extra spicy and flavorful pani puris for spice lovers."
+    },
+    {
+      id: 10,
+      name: "Puri5",
+      price: "₹39",
+      image: puri5,
+      description: "Extra spicy and flavorful pani puris for spice lovers."
+    },
+
+
   ];
   
   export default foodData;

@@ -1,20 +1,26 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFoodItems } from "../redux/foodSlice";
 import { CartContext } from "../components/CartContext";
 import "../styles/MenuPage.css";
-import puri1 from "../assets/puri1.jpg";
-import puri2 from "../assets/puri2.jpg";
-import Masala from "../assets/Masala.webp";
-import Spicy from "../assets/spicy.webp";
-
-const foodItems = [
-  { id: 1, name: "Pani Puri", price: 30, image: puri1 },
-  { id: 2, name: "Bhel Puri", price: 40, image: puri2 },
-  { id: 3, name: "Masala Puri", price: 50, image: Masala },
-  { id: 4, name: "Spicy Puri", price: 35, image: Spicy },
-];
 
 const MenuPage = () => {
+  const dispatch = useDispatch();
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
+
+  const { foodItems, status, error } = useSelector((state) => state.food);
+
+  useEffect(() => {
+    dispatch(fetchFoodItems());
+  }, [dispatch]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (status === "failed") {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="menu-page-container">
@@ -27,7 +33,7 @@ const MenuPage = () => {
             <div key={item.id} className="menu-item">
               <img src={item.image} alt={item.name} />
               <h3>{item.name}</h3>
-              <p>₹{item.price}</p>
+              <p>{item.price}</p>
 
               {cartItem ? (
                 <div className="quantity-controls">

@@ -1,0 +1,32 @@
+.cart-page-container {
+    padding: 20px;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .cart-summary {
+    margin-top: 30px;
+    text-align: right;
+  }
+  .cart-quantity-button {
+    background-color: #ff9800;
+    color: white;
+    border: 2px solid #ff9800;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .cart-quantity-button:hover {
+    background-color: #e67e00;
+    color: #fff;
+  }

@@ -1,33 +1,31 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { fetchFoodItems as fetchFromApi } from "../mock/mockApi"; // import from mockapi.js
 
-// Simulate API call
+// Define async action to fetch food items
 export const fetchFoodItems = createAsyncThunk("food/fetchFoodItems", async () => {
-  return [
-    { id: 1, name: "Pani Puri", price: 50 },
-    { id: 2, name: "Bhel Puri", price: 60 },
-  ]; // Replace with actual API call
+  return await fetchFromApi(); // This will either fetch mock data or real API
 });
 
 const foodSlice = createSlice({
   name: "food",
   initialState: {
-    foodItems: [], // Ensure it's an array
-    status: "idle",
-    error: null,
+    foodItems: [], // Empty array for food items
+    status: "idle", // Initial loading status
+    error: null, // Any error from API call
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchFoodItems.pending, (state) => {
-        state.status = "loading";
+        state.status = "loading"; // Set loading state
       })
       .addCase(fetchFoodItems.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.foodItems = action.payload;
+        state.status = "succeeded"; // Set success state
+        state.foodItems = action.payload; // Update state with food items
       })
       .addCase(fetchFoodItems.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
+        state.status = "failed"; // Set failure state
+        state.error = action.error.message; // Update with error message
       });
   },
 });
