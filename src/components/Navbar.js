@@ -27,7 +27,7 @@ const Navbar = () => {
 
         {/* Cart Button */}
         <Button color="inherit" component={Link} to="/cart">
-          <ShoppingCart sx={{ marginRight: "5px" }} /> Cart
+          <ShoppingCart sx={{ marginRight: "5px" }} /> View Cart
         </Button>
       </Toolbar>
     </AppBar>

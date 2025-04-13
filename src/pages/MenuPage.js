@@ -4,10 +4,25 @@ import { fetchFoodItems } from "../redux/foodSlice";
 import { CartContext } from "../components/CartContext";
 import "../styles/MenuPage.css";
 
+
+
+
+
+
+export const ButtonsForCart = (cartItem, item)=>{
+  const { addToCart, removeFromCart } = useContext(CartContext);
+  return (
+  <div className="quantity-controls">
+    <button onClick={() => removeFromCart(item)}>-</button>
+    <span>{cartItem.quantity}</span>
+    <button onClick={() => addToCart(item)}>+</button>
+  </div>
+  )
+}
+
 const MenuPage = () => {
   const dispatch = useDispatch();
-  const { cart, addToCart, removeFromCart } = useContext(CartContext);
-
+  const { cart, addToCart } = useContext(CartContext);
   const { foodItems, status, error } = useSelector((state) => state.food);
 
   useEffect(() => {
@@ -36,11 +51,7 @@ const MenuPage = () => {
               <p>{item.price}</p>
 
               {cartItem ? (
-                <div className="quantity-controls">
-                  <button onClick={() => removeFromCart(item)}>-</button>
-                  <span>{cartItem.quantity}</span>
-                  <button onClick={() => addToCart(item)}>+</button>
-                </div>
+                  ButtonsForCart(cartItem, item)
               ) : (
                 <button className="menu-button" onClick={() => addToCart(item)}>
                   Add to Cart

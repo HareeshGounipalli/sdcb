@@ -10,7 +10,7 @@ import CartPage from "./components/CartPage";
 
 const App = () => {
   return (
-    <CartProvider>
+    <CartProvider className="page-wrapper">
       <Router>
         <Navbar />
         <Routes>
