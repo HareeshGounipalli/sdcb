@@ -1,49 +1,36 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import {
+  addToCartAPI,
+  removeFromCartAPI,
+  fetchCartAPI,
+} from "../mock/cartApi";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (item) => {
-    setCart((prevCart) => {
-      // Check if item already exists in the cart
-      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
+  useEffect(() => {
+    // Load cart from API on mount
+    fetchCartAPI().then(setCart).catch(console.error);
+  }, []);
 
-      if (existingItem) {
-        // Increase quantity if item already exists
-        return prevCart.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
-        );
-      } else {
-        // Add new item with quantity = 1
-        return [...prevCart, { ...item, quantity: 1 }];
-      }
-    });
+  const addToCart = (item) => {
+    addToCartAPI(item).then(setCart).catch(console.error);
   };
 
   const removeFromCart = (item) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
+    removeFromCartAPI(item).then(setCart).catch(console.error);
+  };
 
-      if (existingItem.quantity > 1) {
-        // Decrease quantity if more than 1
-        return prevCart.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity - 1 }
-            : cartItem
-        );
-      } else {
-        // Remove item if quantity is 1
-        return prevCart.filter((cartItem) => cartItem.id !== item.id);
-      }
-    });
+  const loadCart = () => {
+    fetchCartAPI().then(setCart).catch(console.error);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, loadCart }}
+    >
       {children}
     </CartContext.Provider>
   );
