@@ -1,0 +1,43 @@
+.checkout-container {
+    padding: 2rem;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  .form-paper,
+  .summary-paper {
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .summary-items {
+    overflow-y: auto;
+    max-height: 20rem;
+    margin-bottom: 3rem;
+  }
+  
+  .summary-card {
+    margin-bottom: 1rem;
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+  
+  .summary-total {
+    margin-top: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .checkout-container {
+      padding: 1rem;
+    }
+  
+    .summary-items {
+      max-height: 15rem;
+    }
+  }
+  

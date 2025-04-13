@@ -4,28 +4,21 @@ import { fetchFoodItems } from "../redux/foodSlice";
 import { CartContext } from "../components/CartContext";
 import "../styles/MenuPage.css";
 
-export const ButtonsForCart = (cartItem, item, isAvailable) => {
+
+
+
+
+
+export const ButtonsForCart = (cartItem, item)=>{
   const { addToCart, removeFromCart } = useContext(CartContext);
   return (
-    <div className="quantity-controls">
-      <button
-        onClick={() => removeFromCart(item)}
-        disabled={!isAvailable}
-        className={!isAvailable ? "disabled-btn" : ""}
-      >
-        -
-      </button>
-      <span>{cartItem.quantity}</span>
-      <button
-        onClick={() => addToCart(item)}
-        disabled={!isAvailable}
-        className={!isAvailable ? "disabled-btn" : ""}
-      >
-        +
-      </button>
-    </div>
-  );
-};
+  <div className="quantity-controls">
+    <button onClick={() => removeFromCart(item)}>-</button>
+    <span>{cartItem.quantity}</span>
+    <button onClick={() => addToCart(item)}>+</button>
+  </div>
+  )
+}
 
 const MenuPage = () => {
   const dispatch = useDispatch();
@@ -36,8 +29,13 @@ const MenuPage = () => {
     dispatch(fetchFoodItems());
   }, [dispatch]);
 
-  if (status === "loading") return <div>Loading...</div>;
-  if (status === "failed") return <div>Error: {error}</div>;
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (status === "failed") {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="menu-page-container">
@@ -45,30 +43,18 @@ const MenuPage = () => {
       <div className="menu-list">
         {foodItems.map((item) => {
           const cartItem = cart.find((cartItem) => cartItem.id === item.id);
-          const isAvailable = item.available;
 
           return (
-            <div
-              key={item.id}
-              className={`menu-item ${!isAvailable ? "unavailable" : ""}`}
-            >
+            <div key={item.id} className="menu-item">
               <img src={item.image} alt={item.name} />
               <h3>{item.name}</h3>
               <p>{item.price}</p>
 
-              {!isAvailable && (
-                <p className="unavailable-msg">Not available for now</p>
-              )}
-
               {cartItem ? (
-                ButtonsForCart(cartItem, item, isAvailable)
+                  ButtonsForCart(cartItem, item)
               ) : (
-                <button
-                  className="menu-button"
-                  onClick={() => addToCart(item)}
-                  disabled={!isAvailable}
-                >
-                  {isAvailable ? "Add to Cart" : "Unavailable"}
+                <button className="menu-button" onClick={() => addToCart(item)}>
+                  Add to Cart
                 </button>
               )}
             </div>
